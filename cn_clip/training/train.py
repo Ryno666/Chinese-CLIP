@@ -4,15 +4,16 @@ import json
 import logging
 import numpy as np
 from tqdm import tqdm
-
+import sys
 import torch
 import torch.nn as nn
 from torch.cuda.amp import autocast
 import torch.distributed.nn
 import torch.distributed as dist
 
-from cn_clip.clip.model import convert_state_dict
 
+sys.path.append('/home/ligy/Chinese-CLIP')
+from cn_clip.clip.model import convert_state_dict
 
 def is_master(args):
     return args.rank == 0
